@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name= "meineersteentitaet", schema = "public")
@@ -16,6 +20,9 @@ public class MeineErsteEntitaet {
 	@Column(name="id")
 	private Long id;
 	
+	@NotNull(message="MeineErsteEntitaet.einDatenfeld:NOTNULL")
+	@NotEmpty(message="MeineErsteEntitaet.einDatenfeld:NOTEMPTY")
+	@Length(max=16, message="MeineErsteEntitaet.einDatenfeld:LENGTH")
 	private String einDatenfeld;
 
 	public String getEinDatenfeld() {
