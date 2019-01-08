@@ -9,10 +9,12 @@ import com.tutorial.tutorial.komponenten.MeineErsteKomponenteI;
 @RestController
 public class MeinErsterRestEndpunkt {
 	
+	public static final String MEINERSTERENDPUNKT = "/meinersterendpunkt";
+	
 	@Autowired
 	protected MeineErsteKomponenteI meineErsteKomponente;
 
-	@GetMapping(path="/meinersterendpunkt")
+	@GetMapping(path=MEINERSTERENDPUNKT)
 	public String ersterEndpunkt() {
 		return meineErsteKomponente.helloWorld();
 	}
